@@ -1,0 +1,29 @@
+// -*- C++ -*-
+#include "./system/geomCalcs"
+
+start   (0.   0.  $z0);
+end     ($x9  0.  $z0);
+fields  (p rho U);
+
+type            sets;
+libs            ("libsampling.so");
+
+executeControl     writeTime;
+writeControl    writeTime;
+interpolationScheme     cellPoint;
+setFormat   raw;
+
+
+sets
+(
+    line
+    {
+        type    lineUniform; // lineCell, lineCellFace
+        axis    x;    // x, y, z, xyz
+        start $start;
+        end   $end;
+        nPoints 500;
+    }
+);
+
+// ************************************************************************* //

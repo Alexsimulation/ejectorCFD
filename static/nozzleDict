@@ -1,0 +1,44 @@
+
+// -- THERMO PROPERTIES --
+Patm  			101325;
+Tatm  			290;
+PjetOut  			146434;
+Tjet  			798.1;
+Ujetout			676.7;
+UatmInlet			0.0;
+gamma  			1.35;
+
+
+
+// -- TURBINE --
+// Main turbine hub length
+hub_len		4.1;
+// Main turbine radius
+hub_radi		0.57409;
+// Nozzle radius
+noz_radi		0.20213058567;
+// Hub end length
+hub_end		1.5;
+// hub end factor
+hub_end_fact	0.5;
+
+// -- EJECTOR --
+// Ejector back length
+ej_back_len	2.0;
+// Ejector front length
+ej_front_len	0.4;
+// Ejector smaller radi
+ej_radi 0.95;
+// Ejector bottom thickness
+ej_thickB		0.1;
+// Ejector top thickness
+ej_thickT		0.075;
+// Delta of throat position
+ej_z_delta		0.25;
+
+// -- BOUNDARY --
+// (Outer radius / ejector external radius) ratio
+outR_ej_R		6;
+// (back length / Total length) ratio
+backL_totalL	3;
+

@@ -1,0 +1,66 @@
+#include "../../nozzleDict"
+
+// Calculations
+
+
+x3	$hub_radi;
+y3	#calc "$hub_radi * 0.01";
+y3m	#calc "-1.0 * $y3 ";
+
+z0	$hub_len;
+z1	#calc "$hub_len + $ej_back_len";
+z2	#calc "$z0 * (1 + $backL_totalL)";
+z5	#calc "$hub_len - $hub_end";
+
+x7	#calc "($hub_radi + $noz_radi*$hub_end_fact)/($hub_end_fact + 1)";
+z7	#calc "($z5 + $z0)/(1 + 1)";
+y7	#calc " $y3 / $x3 * $x7";
+y7m	#calc "-1.0*$y7";
+
+x9	$noz_radi;
+y9	#calc " $y3 / $x3 * $x9";
+y9m	#calc "-1.0*$y9";
+
+x21	$ej_radi;
+z21	#calc "$z0 + $ej_z_delta";
+y21	#calc " $y3 / $x3 * $x21";
+y21m	#calc "-1.0*$y21";
+
+x19	#calc "$ej_radi + $ej_thickB";
+y19	#calc " $y3 / $x3 * $x19";
+y19m	#calc "-1.0*$y19";
+z19	#calc "$z21 - $ej_front_len";
+
+x23	#calc "$ej_radi + $ej_thickB + $ej_thickT";
+y23	#calc " $y3 /$x3*$x23";
+y23m	#calc "-1.0*$y23";
+
+x29	#calc "$x3 * (1 + $outR_ej_R) ";
+y29	#calc " $y3 /$x3*$x29";
+y29m	#calc "-1.0*$y29";
+
+x15	#calc "($x3 + $x19)/(1+1)";
+y15	#calc " $y3 /$x3*$x15";
+y15m	#calc "-1.0*$y15";
+
+// Spline calculations
+z_5_7_arc	#calc "$z0 + ($z0 - $z7)*($x9 - $x3)/($x7 - $x9)";
+
+z21arc	#calc "($z19 + $z21)/(1+1)";
+x21arc	#calc "($x19 + $x21)/(1+1)";
+y21arc	#calc " $y3 /$x3*$x21arc";
+y21arcm	#calc "-1.0*$y21arc";
+
+z27arc	#calc "($z19 + $z21)/(1+1)";
+x27arc	#calc "($x19 + $x23)/(1+1)";
+y27arc	#calc " $y3 /$x3*$x27arc";
+y27arcm	#calc "-1.0*$y27arc";
+
+
+// Number of elements
+base_x_3_15	190;
+nelm_x_3_15	#calc "round( ($x21 - $x9)/0.5 * $base_x_3_15 )";
+
+base_z_0_1		250;
+nelm_z_0_1		#calc "round( ($z1 - $z0)/2.0 * $base_z_0_1 )";
+

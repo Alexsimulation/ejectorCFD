@@ -1,0 +1,32 @@
+#!/bin/sh
+cd ./coarse
+
+echo "RUNNING COARSE MESH"
+
+./Allclean
+
+./Allrun
+
+
+
+cd ../mid
+
+echo "RUNNING MID MESH"
+
+./Allclean
+
+./AllrunMapFields
+
+
+
+cd ../fine
+
+echo "RUNNING FINE MESH"
+
+./Allclean
+
+./AllrunMapFields
+
+cd ../
+
+#------------------------------------------------------------------------------
