@@ -28,7 +28,7 @@ ej_back_len	2.0;
 // Ejector front length
 ej_front_len	0.4;
 // Ejector smaller radi
-ej_radi 0.95;
+ej_radi 0.5;
 // Ejector bottom thickness
 ej_thickB		0.1;
 // Ejector top thickness

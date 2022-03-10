@@ -3,3 +3,7 @@ Cleaned case
 Meshing with blockMesh
 Block decomposition with decomposePar
 Solving with rhoSimpleFoam
+Block reconstruction with reconstructPar
+RUNNING MID MESH
+Cleaned case
+Meshing with blockMesh
