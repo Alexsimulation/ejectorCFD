@@ -21,7 +21,7 @@ scale 1.0;
 // -- Number of elements --
 nelm_x_0_9		20;
 // (calculated) nelm_x_3_15	25;
-nelm_x_15_29	20;
+nelm_x_15_29	35;
 
 nelm_z_3_5		25;
 nelm_z_5_7		35;
@@ -34,7 +34,7 @@ nelm_z_1_2		40;
 grad_x_0_9			0.4;
 grad_x_3_15		3;
 grad_x_3_15m		0.4;
-grad_x_15_29		5;
+grad_x_15_29		20;
 
 grad_z_3_5			5;
 grad_z_1_2			7;

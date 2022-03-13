@@ -1,0 +1,277 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale 1.0;
+
+#include "./system/geomCalcs";
+
+// -- Number of elements --
+nelm_x_0_9		30;
+// (calculated) nelm_x_3_15	25;
+nelm_x_15_29	65;
+nelm_x_43_46	40;
+
+nelm_z_3_5		45;
+nelm_z_5_7		35;
+nelm_z_7_9		45;
+// (calculated) nelm_z_0_1		45;
+nelm_z_1_2		60;
+nelm_z_41_42	30;
+nelm_z_42_43	60;
+
+
+// -- Gradings --
+grad_x_0_9			0.4;
+grad_x_3_15		4;
+grad_x_3_15m		0.4;
+grad_x_15_29		15;
+grad_x_43_46		0.3;
+
+grad_z_3_5			5;
+grad_z_1_2			10;
+grad_z_42_43		0.1;
+
+
+
+
+vertices
+(
+	// Axis vertices
+	(0 0 $z0)		// 0
+	(0 0 $z1)		// 1
+	(0 0 $z2)		// 2
+	($x3 $y3 0)	// 3
+	($x3 $y3m 0)	// 4
+	($x5 $y5 $z5)	// 5
+	($x5 $y5m $z5)	// 6
+	($x7 $y7 $z7)	// 7
+	($x7 $y7m $z7)	// 8
+	($x9 $y9 $z0)	// 9
+	($x9 $y9m $z0)	// 10
+	($x9 $y9 $z1)	// 11
+	($x9 $y9m $z1)	// 12
+	($x9 $y9 $z2)	// 13
+	($x9 $y9m $z2)	// 14
+	($x15 $y15 $z15)	// 15
+	($x15 $y15m $z15)	// 16
+	($x15 $y15 $z5)		// 17
+	($x15 $y15m $z5)	// 18
+	($x19 $y19 $z19)	// 19
+	($x19 $y19m $z19)	// 20
+	($x21 $y21 $z21)	// 21
+	($x21 $y21m $z21)	// 22
+	($x23 $y23 $z1)		// 23
+	($x23 $y23m $z1)	// 24
+	($x23 $y23 $z2)		// 25
+	($x23 $y23m $z2)	// 26
+	($x23 $y23 $z21)	// 27
+	($x23 $y23m $z21)	// 28
+	($x29 $y29 $z15)	// 29
+	($x29 $y29m $z15)	// 30
+	($x29 $y29 $z5)		// 31
+	($x29 $y29m $z5)	// 32
+	($x29 $y29 $z7)		// 33
+	($x29 $y29m $z7)	// 34
+	($x29 $y29 $z21)	// 35
+	($x29 $y29m $z21)	// 36
+	($x29 $y29 $z1)		// 37
+	($x29 $y29m $z1)	// 38
+	($x29 $y29 $z2)		// 39
+	($x29 $y29m $z2)	// 40
+
+	(0 0 $z41)			// 41
+	(0 0 $z15)			// 42
+	(0 0 $z43)			// 43
+	($x44 $y44 $z41)	// 44
+	($x44 $y44m $z41)	// 45
+	($x3 $y3 $z43)		// 46
+	($x3 $y3m $z43)		// 47
+	($x15 $y15 $z43)	// 48
+	($x15 $y15m $z43)	// 49
+	($x29 $y29 $z43)	// 50
+	($x29 $y29m $z43)	// 51
+);
+
+
+
+
+edges
+(
+    // Hub contour
+    BSpline 3 5 (($x3arc $y3arc 0)  ($x5 $y5 $z_3_5_bs)  ($x5 $y5 $z_3_5_bs2))
+    BSpline 4 6 (($x3arc $y3arcm 0) ($x5 $y5m $z_3_5_bs) ($x5 $y5m $z_3_5_bs2))
+    BSpline 5 7 (($x5 $y5 $z_5_7_arc))
+    BSpline 6 8 (($x5 $y5m $z_5_7_arc))
+    BSpline 3 44 (($x44 $y44 0))
+    BSpline 4 45 (($x44 $y44m 0))
+    // Ejector contour
+    BSpline 19 21 (($x21arc $y21arc $z19) ($x21 $y21 $z21arc))
+    BSpline 20 22 (($x21arc $y21arcm $z19) ($x21 $y21m $z21arc))
+    BSpline 19 27 (($x27arc $y27arc $z19) ($x23 $y23 $z27arc))
+    BSpline 20 28 (($x27arc $y27arcm $z19) ($x23 $y23m $z27arc))
+);
+
+
+
+
+
+blocks
+(
+	hex (0 10 9 0  1 12 11 1)		($nelm_x_0_9 1 $nelm_z_0_1)	simpleGrading ($grad_x_0_9 1 1)
+	hex (1 12 11 1  2 14 13 2)		($nelm_x_0_9 1 $nelm_z_1_2)	simpleGrading ($grad_x_0_9 1 $grad_z_1_2)
+	hex (4 16 15 3  6 18 17 5)		($nelm_x_3_15 1 $nelm_z_3_5)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 $grad_z_3_5)
+	hex (6 18 17 5  8 20 19 7)		($nelm_x_3_15 1 $nelm_z_5_7)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 1)
+	hex (8 20 19 7  10 22 21 9)	($nelm_x_3_15 1 $nelm_z_7_9)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 $grad_z_3_5)
+	hex (10 22 21 9  12 24 23 11)	($nelm_x_3_15 1 $nelm_z_0_1)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 1)
+	hex (12 24 23 11  14 26 25 13)	($nelm_x_3_15 1 $nelm_z_1_2)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 $grad_z_1_2)
+	hex (16 30 29 15  18 32 31 17)	($nelm_x_15_29 1 $nelm_z_3_5)	simpleGrading ($grad_x_15_29 1 $grad_z_3_5)
+	hex (18 32 31 17  20 34 33 19)	($nelm_x_15_29 1 $nelm_z_5_7)	simpleGrading ($grad_x_15_29 1 1)
+	hex (20 34 33 19  28 36 35 27)	($nelm_x_15_29 1 $nelm_z_7_9)	simpleGrading ($grad_x_15_29 1 1)
+	hex (28 36 35 27  24 38 37 23)	($nelm_x_15_29 1 $nelm_z_0_1)	simpleGrading ($grad_x_15_29 1 1)
+	hex (24 38 37 23  26 40 39 25)	($nelm_x_15_29 1 $nelm_z_1_2)	simpleGrading ($grad_x_15_29 1 $grad_z_1_2)
+
+	hex (47 49 48 46  4 16 15 3)	($nelm_x_3_15 1 $nelm_z_42_43)	simpleGrading ( ((0.5 0.5 $grad_x_3_15) (0.5 0.5 $grad_x_3_15m)) 1 $grad_z_42_43)
+	hex (49 51 50 48  16 30 29 15)	($nelm_x_15_29 1 $nelm_z_42_43) simpleGrading ($grad_x_15_29 1 $grad_z_42_43)
+	hex (43 47 46 43  42 4 3 42)	($nelm_x_43_46 1 $nelm_z_42_43)	simpleGrading ($grad_x_43_46 1 $grad_z_42_43)
+	hex (42 4 3 42  41 45 44 41)	($nelm_x_43_46 1 $nelm_z_41_42)	simpleGrading ($grad_x_43_46 1 1)
+);
+
+
+defaultPatch
+{
+    name sideB;
+    type wedge;
+}
+
+boundary
+(
+    airInlet
+    {
+        type patch;
+        faces
+        (
+            (43 46 47 43)
+            (46 48 49 47)
+            (48 50 51 49)
+        );
+    }
+
+    airOutlet
+    {
+        type patch;
+        faces
+        (
+            (2 14 13 2)
+            (14 26 25 13)
+            (26 40 39 25)
+        );
+    }
+
+    jetInlet
+    {
+        type patch;
+        faces
+        (
+            (41 45 44 41)
+        );
+    }
+
+    jetOutlet
+    {
+        type patch;
+        faces
+        (
+            (0 9 10 0)
+        );
+    }
+
+    axis
+    {
+        type empty;
+        faces
+        (
+            (0 1 1 0)
+            (1 2 2 1)
+            (43 42 42 43)
+            (42 41 41 42)
+        );
+    }
+
+    walls
+    {
+        type wall;
+        faces
+        (
+            (5 6 8 7)
+            (7 8 10 9)
+            (21 22 20 19)
+            (23 24 22 21)
+            (19 20 28 27)
+            (27 28 24 23)
+        );
+    }
+
+    fastWalls
+    {
+        type wall;
+        faces
+        (
+            (3 4 6 5)
+            (44 45 4 3)
+        );
+    }
+
+    top
+    {
+        type patch;
+        faces
+        (
+            (30 29 31 32)
+            (32 31 33 34)
+            (34 33 35 36)
+            (36 35 37 38)
+            (38 37 39 40)
+            (29 30 51 50)
+        );
+    }
+
+    sideA
+    {
+        type wedge;
+        faces
+        (
+            (0 1 11 9)
+            (1 2 13 11)
+            (3 5 17 15)
+            (5 7 19 17)
+            (7 9 21 19)
+            (9 11 23 21)
+            (11 13 25 23)
+            (15 17 31 29)
+            (17 19 33 31)
+            (19 27 35 33)
+            (27 23 37 35)
+            (23 25 39 37)
+            (41 44 3 42)
+            (43 42 3 46)
+            (46 3 15 48)
+            (48 15 29 50)
+        );
+    }
+
+);
+
+// ************************************************************************* //

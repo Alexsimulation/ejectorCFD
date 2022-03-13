@@ -58,7 +58,7 @@ y27arcm	#calc "-1.0*$y27arc";
 
 
 // Number of elements
-base_x_3_15	190;
+base_x_3_15	250;
 nelm_x_3_15	#calc "round( ($x21 - $x9)/0.5 * $base_x_3_15 )";
 
 base_z_0_1		250;

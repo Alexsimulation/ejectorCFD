@@ -60,15 +60,15 @@ relaxationFactors
 {
     fields
     {
-        p               0.9;
+        p               0.7;
     }
     equations
     {
-        p               0.9;
-        U               0.8;
-        e               0.7;
-        k               0.7;
-        epsilon         0.7;
+        p               0.7;
+        U               0.6;
+        e               0.5;
+        k               0.5;
+        epsilon         0.5;
     }
 }
 

@@ -4,10 +4,12 @@ set output 'batchPlot.png'
 set multiplot layout 1,2
 
 #set size 1.0,1.0
-set xlabel 'Inner Radius (m)'
-plot "batchResults.dat" every ::1 using 1:2 with lp title 'bypass ratio'
+set xlabel 'Convergent length (m)'
+set ylabel 'bypass ratio'
+plot "batchResults.dat" every ::1 using 1:2 with lp notitle
 
 #set size 1.0,1.0
-plot "batchResults.dat" every ::1 using 1:3 with lp title 'thrust ratio'
+set ylabel 'thrust ratio'
+plot "batchResults.dat" every ::1 using 1:3 with lp notitle
 
 unset multiplot

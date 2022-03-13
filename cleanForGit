@@ -1,0 +1,41 @@
+#!/bin/sh
+cd ./static/coarse
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+cd ../mid
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+cd ../fine
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+
+cd ../../
+
+cd ./static2/coarse
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+cd ../mid
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+cd ../fine
+
+./Allclean
+rm -r dynamicCode
+rm -r constant/polyMesh
+
+cd ../../

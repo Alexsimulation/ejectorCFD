@@ -122,8 +122,8 @@ def run(var, values):
 
     mass_ratio = []
     thrust_ratio = []
-    #with open('./results/batchResults.dat','w') as f:
-    #    f.write(' '.join([var, 'mass_ratio', 'thrust_ratio']) + '\n')
+    with open('./results/batchResults.dat','a') as f:
+        f.write(' '.join([var, 'mass_ratio', 'thrust_ratio']) + '\n')
     for v in values:
         editVar(var, v)
         # Run simulation
@@ -131,7 +131,6 @@ def run(var, values):
         os.system('./globalRun > log.global')
         # Get results
         res = get_perf()
-        #print(var + ' = ' + str(v) + ', ' + 'mass_ratio = ' + '{:.3e}'.format(res['m_dot']) + ', ' + 'thrust_ratio = ' + '{:.3e}'.format(res['thrust']))
         mass_ratio.append(res['m_dot'])
         thrust_ratio.append(res['thrust'])
         this_values = ['{:.6e}'.format(k) for k in [v, res['m_dot'], res['thrust']]]
@@ -140,6 +139,7 @@ def run(var, values):
 
 
 if __name__=='__main__':
-    var = 'ej_radi'
-    values = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    var = 'ej_front_len'
+    values = [0.8, 0.9]
     run(var, values)
+

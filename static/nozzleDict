@@ -5,7 +5,7 @@ Tatm  			290;
 PjetOut  			146434;
 Tjet  			798.1;
 Ujetout			676.7;
-UatmInlet			0.0;
+UatmInlet			1.0;
 gamma  			1.35;
 
 
@@ -24,11 +24,11 @@ hub_end_fact	0.5;
 
 // -- EJECTOR --
 // Ejector back length
-ej_back_len	2.0;
+ej_back_len     3.0;
 // Ejector front length
-ej_front_len	0.4;
+ej_front_len 0.9;
 // Ejector smaller radi
-ej_radi 0.5;
+ej_radi         0.45;
 // Ejector bottom thickness
 ej_thickB		0.1;
 // Ejector top thickness

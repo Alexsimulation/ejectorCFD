@@ -1,0 +1,3 @@
+ej_radi bypass_ratio thrust_ratio total_thrust core_thrust mass_flow_in mass_flow_out mass_flow_total mass_flow_bypass mass_flow_error
+4.000000e-01 1.486494e+00 7.782135e-01 3.412581e+04 4.385148e+04 5.522278e+01 5.514852e+01 1.371264e+02 8.197792e+01 1.346589e-03
+5.000000e-01 2.343682e+00 9.517511e-01 4.191594e+04 4.404086e+04 5.523902e+01 5.540615e+01 1.852605e+02 1.298544e+02 3.016419e-03

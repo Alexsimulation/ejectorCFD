@@ -7,3 +7,15 @@ Block reconstruction with reconstructPar
 RUNNING MID MESH
 Cleaned case
 Meshing with blockMesh
+Mapping fields from coarse to fine
+Block decomposition with decomposePar
+Solving with rhoSimpleFoam
+Block reconstruction with reconstructPar
+RUNNING FINE MESH
+Cleaned case
+Meshing with blockMesh
+Mapping fields from coarse to fine
+Block decomposition with decomposePar
+Solving with rhoSimpleFoam
+Block reconstruction with reconstructPar
+Computing yPlus

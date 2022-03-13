@@ -39,7 +39,7 @@ solvers
 
 SIMPLE
 {
-    nCorrectors 3;
+    nCorrectors 2;
     nNonOrthogonalCorrectors 8;
     transonic       yes;
     consistent      yes;
@@ -60,15 +60,15 @@ relaxationFactors
 {
     fields
     {
-        p               0.9;
+        p               0.5;
     }
     equations
     {
-        p               0.9;
-        U               0.6;
-        e               0.4;
-        k               0.4;
-        epsilon         0.4;
+        p               0.5;
+        U               0.3;
+        e               0.2;
+        k               0.2;
+        epsilon         0.2;
     }
 }
 

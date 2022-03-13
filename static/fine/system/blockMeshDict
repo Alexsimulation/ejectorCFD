@@ -33,7 +33,7 @@ nelm_z_1_2		220;
 // -- Gradings --
 grad_x_0_9			0.1;
 grad_x_3_15		10;
-grad_x_3_15m		0.06;
+grad_x_3_15m		0.1;
 grad_x_15_29		60;
 
 grad_z_3_5			16;

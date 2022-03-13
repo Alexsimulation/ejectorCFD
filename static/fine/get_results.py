@@ -89,6 +89,7 @@ def get_perf(verb=False):
     F_i1, m_dot_i1 = int_var( import_data(last_time, 'getInletMomentum', 'line1') )
     F_i2, m_dot_i2 = int_var( import_data(last_time, 'getInletMomentum', 'line2') )
     F_i = F_i0 + F_i1 + F_i2
+    print('M_dot_jet : ',m_dot_j)
 
     entrainement_ratio = (m_dot_e - m_dot_j)/m_dot_j
     thrust_ratio = (F_e-F_i)/(F_j)

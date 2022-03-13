@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+rm -f 0/cellDist
+
+foamListTimes -rm
+rm -rf processor*
+rm -rf log*
+rm -rf postProcessing
+rm -r 0
+cp -r 0.bckp 0
+
+echo "Cleaned case"
+
+#------------------------------------------------------------------------------
