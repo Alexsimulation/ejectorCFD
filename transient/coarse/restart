@@ -1,0 +1,11 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+echo "Solving with rhoCentralFoam"
+mpirun -np 6 rhoCentralFoam -parallel > log.rhoCentralFoam
+
+echo "Block reconstruction with reconstructPar"
+reconstructPar > log.reconstructPar
+
+
+#------------------------------------------------------------------------------

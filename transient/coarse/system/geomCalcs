@@ -1,0 +1,89 @@
+#include "../../nozzleDict"
+
+// Calculations
+
+
+x3	#calc "($inlet_radi*3 + $hub_radi)/(3+1)";
+y3	#calc "$x3 * $wedge_factor";
+y3m	#calc "-1.0 * $y3 ";
+
+x5	$hub_radi;
+y5	#calc "$hub_radi * $wedge_factor";
+y5m	#calc "-1.0 * $y5 ";
+
+z0	$hub_len;
+z1	#calc "$hub_len + $ej_back_len";
+z2	#calc "$z0 * (1 + $backL_totalL)";
+z5	#calc "$hub_len - $hub_end";
+
+x7	#calc "($hub_radi + $noz_radi*$hub_end_fact)/($hub_end_fact + 1)";
+z7	#calc "($z5 + $z0)/(1 + 1)";
+y7	#calc " $y3 / $x3 * $x7";
+y7m	#calc "-1.0*$y7";
+
+x9	$noz_radi;
+y9	#calc " $y3 / $x3 * $x9";
+y9m	#calc "-1.0*$y9";
+
+x21	$ej_radi;
+z21	#calc "$z0 + $ej_z_delta";
+y21	#calc " $y3 / $x3 * $x21";
+y21m	#calc "-1.0*$y21";
+
+x19	#calc "$ej_radi + $ej_thickB";
+y19	#calc " $y3 / $x3 * $x19";
+y19m	#calc "-1.0*$y19";
+z19	#calc "$z21 - $ej_front_len";
+
+x23	#calc "$ej_radi + $ej_thickB + $ej_thickT";
+y23	#calc " $y3 /$x3*$x23";
+y23m	#calc "-1.0*$y23";
+
+x29	#calc "$hub_radi * (1 + $outR_ej_R) ";
+y29	#calc " $y3 /$x3*$x29";
+y29m	#calc "-1.0*$y29";
+
+x15	#calc "$x5 + $ej_radi - $noz_radi";
+y15	#calc " $y3 /$x3*$x15";
+y15m	#calc "-1.0*$y15";
+
+
+z41	#calc "$inlet_len";
+z43	#calc "-1.0*$hub_len*$frontL_totalL";
+x44	#calc "$inlet_radi";
+y44	#calc " $y3 / $x3 * $x44";
+y44m	#calc "-1.0*$y44";
+
+z15	#calc "-1.0 * $inlet_len / 2";
+
+
+
+// Spline calculations
+
+z_3_5_bs	#calc " $z5 / 3";
+z_3_5_bs2	#calc " $z5 / 2";
+z_5_7_arc	#calc "$z0 + ($z0 - $z7)*($x9 - $x5)/($x7 - $x9)";
+
+z21arc	#calc "($z19 + $z21)/(1+1)";
+x21arc	#calc "($x19 + $x21)/(1+1)";
+y21arc	#calc " $y3 /$x3*$x21arc";
+y21arcm	#calc "-1.0*$y21arc";
+
+z27arc	#calc "($z19 + $z21)/(1+1)";
+x27arc	#calc "($x19 + $x23)/(1+1)";
+y27arc	#calc " $y3 /$x3*$x27arc";
+y27arcm	#calc "-1.0*$y27arc";
+
+x3arc		#calc "($x3*2 + $x5)/(2+1)";
+y3arc		#calc " $x3arc * $wedge_factor";
+y3arcm	#calc "-1.0*$y3arc";
+
+
+// Number of elements
+base_x_3_15	35;
+nelm_x_3_15	#calc "round( ($x21 - $x9)/0.5 * $base_x_3_15 )";
+
+base_z_0_1		40;
+nelm_z_0_1		#calc "round( ($z1 - $z0)/2.0 * $base_z_0_1 )";
+
+

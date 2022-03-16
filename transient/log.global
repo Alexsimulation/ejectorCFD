@@ -1,0 +1,5 @@
+RUNNING COARSE MESH
+Cleaned case
+Meshing with blockMesh
+Block decomposition with decomposePar
+Solving with rhoSimpleFoam

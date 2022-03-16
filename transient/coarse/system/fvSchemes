@@ -1,0 +1,99 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluxScheme Kurganov;
+
+ddtSchemes
+{
+    default             Euler;
+}
+
+gradSchemes
+{
+default cellLimited Gauss linear 1;
+
+grad(U) cellLimited Gauss linear 1;
+//grad(rho) Gauss linear;
+//grad(rhoU) Gauss linear;
+//grad((1|psi)) Gauss linear;
+grad(e) cellLimited Gauss linear 1;
+//grad(sqrt(((Cp|Cv)*(1|psi)))) Gauss linear;
+//grad(c) Gauss linear;
+//grad(T) Gauss linear;
+grad(epsilon) cellLimited Gauss linear 1;
+grad(k) cellLimited Gauss linear 1;
+}
+
+divSchemes
+{
+default Gauss upwind;
+
+div(tauMC) Gauss linear;
+//div(phi) Gauss linear;
+//div(phi,epsilon) Gauss linearUpwind grad(epsilon);
+div(phi,k) Gauss linearUpwind grad(k);
+//div(phiEp) Gauss linearUpwind grad(e);
+//div(phiUp) Gauss linear;
+//div(sigmaDotU) Gauss linear;
+}
+
+laplacianSchemes
+{
+default Gauss linear corrected;
+
+laplacian(muEff,U) Gauss linear corrected;
+laplacian(alphaEff,e) Gauss linear corrected;
+laplacian(alpha,e) Gauss linear corrected;
+laplacian(k,T) Gauss linear corrected;
+laplacian(DepsilonEff,epsilon) Gauss linear corrected;
+laplacian(DkEff,k) Gauss linear corrected;
+
+}
+
+
+interpolationSchemes
+{
+default linear;
+ reconstruct(rho) vanAlbada;
+ reconstruct(U) vanAlbadaV;
+ reconstruct(T) vanAlbada;
+
+// reconstruct(rho) vanAlbada;
+// reconstruct(U) vanAlbadaV;
+// reconstruct(T) vanAlbada;
+
+// interpolate(rho) linear;
+// interpolate(U) linear;
+// interpolate(T) linear;
+// interpolate(e) linear;
+// interpolate(c) linear;
+// interpolate(rhoU) linear;
+// interpolate(rPsi) linear;
+// interpolate(muEff) linear;
+// interpolate(tauMC) linear;
+}
+
+snGradSchemes
+{
+default corrected;
+
+snGrad(U) corrected;
+
+}
+
+
+// ************************************************************************* //

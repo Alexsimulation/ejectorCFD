@@ -1,0 +1,23 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+
+echo "Meshing with blockMesh"
+blockMesh > log.blockMesh
+
+echo "Mapping fields from coarse to fine"
+mapFields ../mid -sourceTime latestTime -consistent > log.mapFields
+
+echo "Block decomposition with decomposePar"
+decomposePar -cellDist > log.decomposePar
+
+echo "Solving with rhoSimpleFoam"
+mpirun -np 6 rhoSimpleFoam -parallel > log.rhoSimpleFoam
+
+echo "Block reconstruction with reconstructPar"
+reconstructPar > log.reconstructPar
+
+echo "Computing yPlus"
+rhoSimpleFoam -postProcess -func yPlus > log.yPlus
+
+#------------------------------------------------------------------------------
