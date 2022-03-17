@@ -26,13 +26,10 @@ cd ./static2/coarse
 rm -r dynamicCode
 rm -r constant/polyMesh
 
-cd ../mid
+cd ../../
 
-./Allclean
-rm -r dynamicCode
-rm -r constant/polyMesh
 
-cd ../fine
+cd ./transient/coarse
 
 ./Allclean
 rm -r dynamicCode

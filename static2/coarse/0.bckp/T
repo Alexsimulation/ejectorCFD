@@ -23,26 +23,32 @@ boundaryField
 {
     jetInlet
     {
-        type            inletOutlet;
-        value           $internalField;
-        inletValue      uniform $Tatm;
+        type            totalTemperature;
+        psi             thermo:psi;
+        gamma           $gamma;
+        T0              uniform $Tatm;
+        value           uniform $Tatm;
     }
     jetOutlet
     {
-        type         uniformFixedValue;
-        uniformValue        table ( (0 $Tatm) (50 $Tjet) );
+        type            fixedValue;
+        value           uniform $Tjet;
     }
     airInlet
     {
-        type            outletInlet;
+        type            totalTemperature;
+        psi             thermo:psi;
+        gamma           $gamma;
+        T0              uniform $Tatm;
         value           uniform $Tatm;
-        outletValue      uniform $Tatm;
     }
     airOutlet
     {
-        type            inletOutlet;
-        value           $internalField;
-        inletValue      uniform $Tatm;
+        type            totalTemperature;
+        psi             thermo:psi;
+        gamma           $gamma;
+        T0              uniform $Tatm;
+        value           uniform $Tatm;
     }
     walls
     {
@@ -54,9 +60,11 @@ boundaryField
     }
     top
     {
-        type            outletInlet;
+        type            totalTemperature;
+        psi             thermo:psi;
+        gamma           $gamma;
+        T0              uniform $Tatm;
         value           uniform $Tatm;
-        outletValue     uniform $Tatm;
     }
     axis
     {

@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-epValue 50;
+epValue 20;
 
 dimensions      [0 2 -3 0 0 0 0];
 
@@ -32,13 +32,13 @@ boundaryField
     jetOutlet
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.5;
+        mixingLength    0.05;
         value           uniform $epValue;
     }
     airInlet
     {
-        type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.2;
+        type            inletOutlet;
+        inletValue      uniform $epValue;
         value           uniform $epValue;
     }
     airOutlet
@@ -50,23 +50,16 @@ boundaryField
     walls
     {
         type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
         value           uniform $epValue;
     }
     fastWalls
     {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform $epValue;
+        type            zeroGradient;
     }
     top
     {
-        type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.2;
+        type            inletOutlet;
+        inletValue      uniform $epValue;
         value           uniform $epValue;
     }
     axis

@@ -30,7 +30,7 @@ boundaryField
     jetOutlet
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.05;
+        intensity       0.005;
         value           uniform 1;
     }
     airInlet
@@ -52,8 +52,7 @@ boundaryField
     }
     fastWalls
     {
-        type            kqRWallFunction;
-        value           uniform 1;
+        type            zeroGradient;
     }
     top
     {

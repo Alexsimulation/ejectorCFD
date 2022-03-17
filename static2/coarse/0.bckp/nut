@@ -51,10 +51,7 @@ boundaryField
     }
     fastWalls
     {
-        type            nutkWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
+        type            calculated;
         value           uniform 0;
     }
     top

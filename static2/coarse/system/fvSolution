@@ -20,17 +20,17 @@ solvers
     p
     {
         solver          GAMG;
-        tolerance       1e-08;
-        relTol          0.1;
+        tolerance       1e-11;
+        relTol          0.001;
         smoother        GaussSeidel;
         nCellsInCoarsestLevel 20;
     }
 
     "(U|e|k|epsilon)"
     {
-        solver          GAMG;
-        tolerance       1e-08;
-        relTol          0.1;
+        solver          smoothSolver;
+        tolerance       1e-11;
+        relTol          0.001;
         smoother        GaussSeidel;
         nCellsInCoarsestLevel 20;
     }
@@ -39,8 +39,8 @@ solvers
 
 SIMPLE
 {
-    nCorrectors 4;
-    nNonOrthogonalCorrectors 10;
+    nCorrectors 2;
+    nNonOrthogonalCorrectors 8;
     transonic       yes;
     consistent      yes;
 
@@ -66,9 +66,9 @@ relaxationFactors
     {
         p               0.8;
         U               0.4;
-        e               0.4;
-        k               0.4;
-        epsilon         0.4;
+        e               0.3;
+        k               0.3;
+        epsilon         0.3;
     }
 }
 

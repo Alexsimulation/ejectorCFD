@@ -23,13 +23,13 @@ boundaryField
 {
     jetInlet
     {
-        type         uniformFixedValue;
-        uniformValue        table ( (0 (0 0 0)) (50 (0 0 $Ujetin)) );
+        type                fixedValue;
+        value               uniform (0 0 $Ujetin);
     }
     jetOutlet
     {
-        type         uniformFixedValue;
-        uniformValue        table ( (0 (0 0 0)) (50 (0 0 $Ujetout)) );
+        type                fixedValue;
+        value               uniform (0 0 $Ujetout);
     }
     airInlet
     {
@@ -41,7 +41,7 @@ boundaryField
     airOutlet
     {
         type                inletOutlet;
-        inletValue          uniform (0 0 0);
+        inletValue          $internalField;
         value               uniform (0 0 0);
         phi                 phi;
     }
@@ -51,12 +51,12 @@ boundaryField
     }
     fastWalls
     {
-        type            noSlip;
+        type            slip;
     }
     top
     {
-        type                outletInlet;
-        outletValue         uniform (0 0 0);
+        type                inletOutlet;
+        inletValue          $internalField;
         value               uniform (0 0 0);
         phi                 phi;
     }

@@ -19,18 +19,18 @@ scale 1.0;
 #include "./system/geomCalcs";
 
 // -- Number of elements --
-nelm_x_0_9		30;
+nelm_x_0_9		40;
 // (calculated) nelm_x_3_15	25;
-nelm_x_15_29	65;
-nelm_x_43_46	40;
+nelm_x_15_29	85;
+nelm_x_43_46	60;
 
-nelm_z_3_5		45;
-nelm_z_5_7		35;
-nelm_z_7_9		45;
+nelm_z_3_5		65;
+nelm_z_5_7		55;
+nelm_z_7_9		65;
 // (calculated) nelm_z_0_1		45;
-nelm_z_1_2		60;
-nelm_z_41_42	30;
-nelm_z_42_43	60;
+nelm_z_1_2		120;
+nelm_z_41_42	50;
+nelm_z_42_43	120;
 
 
 // -- Gradings --
@@ -215,8 +215,6 @@ boundary
         type wall;
         faces
         (
-            (5 6 8 7)
-            (7 8 10 9)
             (21 22 20 19)
             (23 24 22 21)
             (19 20 28 27)
@@ -229,6 +227,8 @@ boundary
         type wall;
         faces
         (
+            (5 6 8 7)
+            (7 8 10 9)
             (3 4 6 5)
             (44 45 4 3)
         );

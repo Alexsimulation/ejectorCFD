@@ -6,6 +6,7 @@ PjetOut  			146434;
 Tjet  			798.1;
 Ujetout			676.7;
 Ujetin			200.0;
+Pjetin			80200;
 Uinit				0.0;
 gamma  			1.35;
 
@@ -29,17 +30,17 @@ inlet_len		0.3;
 
 // -- EJECTOR --
 // Ejector back length
-ej_back_len     3.5;
+ej_back_len 2;
 // Ejector front length
 ej_front_len    0.6;
 // Ejector smaller radi
 ej_radi 0.6;
 // Ejector bottom thickness
-ej_thickB		0.1;
+ej_thickB		0.12;
 // Ejector top thickness
-ej_thickT		0.06;
+ej_thickT		0.08;
 // Delta of throat position
-ej_z_delta		0.25;
+ej_z_delta 0.3;
 
 // -- BOUNDARY --
 // (Outer radius / ejector external radius) ratio

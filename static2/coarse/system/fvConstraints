@@ -22,8 +22,8 @@ limitTemperature
 	limitTemperatureCoeffs
 	{
 		selectionMode all;
-		min 1;
-		max 50000;
+		min 10;
+		max 10000;
 	}
 }
 

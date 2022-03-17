@@ -49,8 +49,7 @@ boundaryField
     }
     fastWalls
     {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
+        type            calculated;
         value           uniform 0;
     }
     top
