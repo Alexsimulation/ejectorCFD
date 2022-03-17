@@ -122,6 +122,8 @@ edges
     BSpline 20 22 (($x21arc $y21arcm $z19) ($x21 $y21m $z21arc))
     BSpline 19 27 (($x27arc $y27arc $z19) ($x23 $y23 $z27arc))
     BSpline 20 28 (($x27arc $y27arcm $z19) ($x23 $y23m $z27arc))
+    BSpline 21 23 (($x21 $y21 $z23arc))
+    BSpline 22 24 (($x21 $y21m $z23arc))
 );
 
 

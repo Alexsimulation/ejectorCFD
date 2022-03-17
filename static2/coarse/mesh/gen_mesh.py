@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 
 
 
@@ -30,7 +30,7 @@ def editVars(variables, values, filename):
         l = lines[k].lstrip()
         if l[:len(variable)] in variables:
             variable = l[:len(variable)]
-            lines[k] = variable + ' ' + str(values[variable]) + '\n'
+            lines[k] = variable + '\t\t\t' + str(values[variable]) + '\n'
     
     with open(filename, 'w') as file:
         file.writelines(lines)
@@ -53,6 +53,9 @@ def readVars(filename):
 
 
 def geomCalcs(d, filename='../system/geomCalcs'):
+
+    d['ej_thickB'] = ( np.sqrt(d['ej_area_ratio']) - 1 ) * d['ej_radi'] / (1 + d['ej_thickTB'])
+    d['ej_thickT'] = d['ej_thickB'] * d['ej_thickTB']
 
     v = {}
     ints = {}
@@ -128,6 +131,8 @@ def geomCalcs(d, filename='../system/geomCalcs'):
     v['y27arc']	=  v['y3'] / v['x3'] * v['x27arc']
     v['y27arcm']	= -1.0*v['y27arc']
 
+    v['z23arc'] = (v['z21']*4 + v['z1'])/(4+1)
+
     v['x3arc']		= (v['x3']*2 + v['x5'])/(2+1)
     v['y3arc']		=  v['x3arc'] * d['wedge_factor']
     v['y3arcm']	= -1.0*v['y3arc']
@@ -145,7 +150,7 @@ def geomCalcs(d, filename='../system/geomCalcs'):
     with open(filename, 'w') as f:
         f.write('\n#include "../../nozzleDict"\n\n')
         for var in v:
-            s = var + '\t' + '{:.8e}'.format(v[var]) + ';\n'
+            s = var + '\t' + '{:.16e}'.format(v[var]) + ';\n'
             f.write( s )
         for var in ints:
             s = var + '\t' + '{:d}'.format(ints[var]) + ';\n'

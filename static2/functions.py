@@ -172,8 +172,6 @@ def run(vars, values):
     for i in itertools.product(*values):
         d.append( {v:k for v,k in zip(vars, i)} )
 
-        
-
     step = 0
     for di in d:
         for var in di:
