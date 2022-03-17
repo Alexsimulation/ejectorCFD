@@ -30,17 +30,17 @@ inlet_len			0.3;
 
 // -- EJECTOR --
 // Ejector back length
-ej_back_len		2;
+ej_back_len 2;
 // Ejector front length
 ej_front_len		0.6;
 // Ejector smaller radi
-ej_radi			0.6;
+ej_radi 0.6;
 // Ejector area ratio
-ej_area_ratio		1.44;
+ej_area_ratio 1.44;
 // Ejector top thickness / bottom thickness
 ej_thickTB			0.6;
 // Delta of throat position
-ej_z_delta			0.3;
+ej_z_delta 0.3;
 
 // -- BOUNDARY --
 // (Outer radius / ejector external radius) ratio

@@ -1,6 +1,3 @@
 RUNNING COARSE MESH
 Cleaned case
 Writing geomCalcs
-Meshing with blockMesh
-Block decomposition with decomposePar
-Solving with rhoSimpleFoam
